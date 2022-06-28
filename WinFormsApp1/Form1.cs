@@ -15,7 +15,22 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            DoubleBuffered = true; //stops image flickering
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        Pen currentpen = new Pen(Color.Black);
+        private void canvas_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gr = e.Graphics;
+            Point a = new Point(20, 30);
+            Point b = new Point(400, 500);
+            gr.DrawLine(currentpen, a, b);
+
+        }
     }
 }
